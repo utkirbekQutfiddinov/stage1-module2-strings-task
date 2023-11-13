@@ -1,12 +1,11 @@
 package com.epam.mjc;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MethodSignature {
     private String accessModifier;
     private String returnType;
-    private String methodName;
+    private final String methodName;
     private final List<Argument> arguments;
 
     public MethodSignature(String methodName, List<Argument> arguments) {
@@ -14,16 +13,8 @@ public class MethodSignature {
         this.arguments = arguments;
     }
 
-    public MethodSignature(String methodName) {
-        this(methodName, new ArrayList<>());
-    }
-
     public String getMethodName() {
         return methodName;
-    }
-
-    public void setMethodName(String methodName) {
-        this.methodName = methodName;
     }
 
     public String getAccessModifier() {
@@ -47,8 +38,8 @@ public class MethodSignature {
     }
 
     public static class Argument {
-        private String type;
-        private String name;
+        private final String type;
+        private final String name;
 
         public Argument(String type, String name) {
             this.type = type;
@@ -59,16 +50,9 @@ public class MethodSignature {
             return type;
         }
 
-        public void setType(String type) {
-            this.type = type;
-        }
-
         public String getName() {
             return name;
         }
 
-        public void setName(String name) {
-            this.name = name;
-        }
     }
 }
